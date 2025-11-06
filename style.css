@@ -1939,7 +1939,8 @@ nav .animated-button:hover span:last-child {
   position: absolute;
   background: var(--dark-blue);
   min-width: 120px;
-
+top: 70px;
+right: 250px;
   z-index: 1;
 }
 
