@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us – Anamika Engineering</title>
+    <style>
+        /* Base Styling - Consistent with About Us Page */
+        :root {
+            --primary-color: #213e60; /* A professional blue */
+            --secondary-color: #69acc2; /* A complementary green for highlights */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #e9ecef;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px; /* Slightly narrower for focus */
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            background-image: url("img/banner.png");
+            background-size: 100% 150%;
+            background-position: center;
+            color: var(--primary-color);
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            font-weight: 300;
+        }
+        
+        /* Contact Form Styles */
+        .contact-content {
+            display: flex;
+            gap: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info, .contact-form-area {
+            flex: 1;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+
+        /* Form Elements */
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form input[type="tel"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding doesn't affect total width */
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .contact-form button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #1e7e34; /* Darker green on hover */
+        }
+        
+        /* Information Section Styles */
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+            color: var(--secondary-color);
+            font-size: 24px;
+            margin-right: 15px;
+            /* Placeholder for a real icon library like FontAwesome */
+        }
+        
+        .info-item h3 {
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+        
+        /* Footer Placeholder */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="navbar">
+          <section class="logo"><img src="img/logo.png" alt=""></section>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+          <nav class="nav-links" id="navLinks">
+            <a href="index.html"><span>Home</span></a>
+            <a href="about.html">About Us</a>  
+            <div class="dropdown">
+                <button class="dropbtn"><a href="#">Products</a> 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="surgical-sub-station.html">Surgical Scrub Station</a>
+                  <a href="scrub_sink.html">Scrub Sink</a>
+                  <a href="automatic_scrub.html">Automatic Scrub Station / Sink</a>
+                  <a href="icu_bed.html">ICU Bed</a>
+                  <a href="labour_table.html">Labour Table</a>
+                  <a href="Electric-Examination-Table.html">Electric Examination Table</a>
+                  <a href="EMERGENCY_AND_RECOVERY_TROLLEY.html">Emergency and Recovery Trolley</a>
+                  <a href="autoclave.html">Autoclave High Pressure Steam Sterilizer</a>
+                  <a href="scrub_sink_timer.html">Scrub Sink Timer</a>
+                  <a href="DIALYSIS_CHAIR.html">Dialysis Chair</a>
+                  <a href="CATHETER_WASH_SINK.html">Catheter Wash Sink</a>
+                  <a href="pass_box.html">Pass box / Hatch Box</a>
+                </div>
+              </div> 
+            <a href="contact.html">Contact Us</a>
+            <a href="cataloge.html">Cataloge</a>
+            <a href="#"><button class="animated-button">
+  <span>Enquire</span>
+  <span></span>
+</button></a>
+          </nav>
+        </section>
+    <header class="hero">
+        <div class="container">
+            <h1>Get In Touch With Anamika Engineering</h1>
+            <p>We are dedicated to providing superior medical equipment and excellent customer support. Reach out to us for inquiries, quotes, or support.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="contact-content">
+            
+            <div class="contact-info">
+                <h2>Our Contact Details</h2>
+                <p>Feel free to connect with our team directly via phone or email.</p>
+
+                <div class="info-item">
+                    <div class="info-icon">📞</div> <div>
+                        <h3>Phone</h3>
+                        <p>+91-9899478180<br>+91-7836090243</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📧</div> <div>
+                        <h3>Email</h3>
+                        <p>engineering.anamika@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📍</div> <div>
+                        <h3>Address (Head Office)</h3>
+                        <p>Anamika Engineering, [Your Full Address Line 1], [Your City, State, Pin Code], India</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px;">**Hours of Operation:** Monday - Saturday, 9:00 AM - 6:00 PM IST</p>
+            </div>
+            
+            <div class="contact-form-area">
+                <h2>Send Us A Message</h2>
+                <form class="contact-form" action="submit_form.php" method="POST">
+                    
+                    <label for="name">Your Name (Required)</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+
+                    <label for="email">Email Address (Required)</label>
+                    <input type="email" id="email" name="email" required placeholder="name@example.com">
+                    
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91-9876543210">
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Inquiry about ICU Beds">
+                    
+                    <label for="message">Your Message (Required)</label>
+                    <textarea id="message" name="message" required placeholder="I am interested in..."></textarea>
+                    
+                    <button type="submit">Submit Inquiry</button>
+                </form>
+            </div>
+
+        </div>
+        
+        <section style="text-align: center; margin-top: 40px; padding: 20px; background: var(--dark-bg); border-radius: 8px;">
+            <p>For urgent matters regarding service or support, please call us directly.</p>
+        </section>
+
+    </main>
+
+   <footer class="nyc-footer">
+    <div class="nyc-footer-content">
+        <div class="nyc-footer-links">
+            <div class="footer-column">
+        <img src="img/logo.png" alt="">
+        <h3>Anamika Engineering</h3>
+        <p>
+          At Anamika Engineering, we think that accuracy, quality, 
+          and trust are the foundations of healthcare.
+        </p>
+            </div>
+
+            <!-- Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <p><a href="#">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="surgical-sub-station.html">Products</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+            <div class="footer-column">
+                <h3>Popular Topics</h3>
+                <ul>
+                  <li><a href="surgical-sub-station.html">Surgical Scrub Station</a></li>
+                  <li><a href="scrub_sink.html">Scrub Sink</a></li>
+                  <li><a href="automatic_scrub.html">Automatic Scrub Station / Sink</a></li>
+                  <li><a href="icu_bed.html">ICU Bed</a></li>
+                  <li><a href="labour_table.html">Labour Table</a></li>
+                  <li><a href="Electric-Examination-Table.html">Electric Examination Table</a></li>
+                  <li><a href="EMERGENCY_AND_RECOVERY_TROLLEY.html">Emergency and Recovery Trolley</a></li>
+                  <li><a href="autoclave.html">Autoclave High Pressure Steam Sterilizer</a></li>
+                  <li><a href="scrub_sink_timer.html">Scrub Sink Timer</a></li>
+                  <li><a href="DIALYSIS_CHAIR.html">Dialysis Chair</a></li>
+                  <li><a href="CATHETER_WASH_SINK.html">Catheter Wash Sink</a></li>
+                  <li><a href="pass_box.html">Pass box / Hatch Box</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>
+                    <a href="tel:311"><i class="fa-solid fa-phone"></i>&nbsp;+91-9899478180<br>+91-7836090243</a><br>
+                    <a href="mailto:info@nycwebsite.gov"><i class="fa-solid fa-envelope"></i>&nbsp;engineering.anamika@gmail.com</a>
+                    <a href="#"></a>
+                </p>
+                
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="nyc-footer-bottom">
+            <p class="copyright">&copy; 2025 Anamika Engineering designed by<br> Promopact Marketing Pvt. Ltd.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

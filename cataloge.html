@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>catalogue</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Montreal Bold';
+    src: url('font\ Montreal\ Bold.otf') format('truetype');
+}
+
+:root                       {--light-blue: #69acc2;
+                            --grey: #dddbda;
+                            --dark-blue: #213e60;
+                            --white: #f2f1ef;}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: sans-serif;
+    background-color: var(--grey);
+}
+
+/* Book */
+.book {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    transition: transform 0.5s;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+
+}
+
+.front,
+.back {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid var(--dark-blue);
+}
+
+.back {
+    z-index: 0;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover img {
+    color: var(--dark-blue);
+}
+
+img {
+    font-size: 50px;
+    color: var(--dark-blue);
+}
+
+/* Paper stack order */
+#p1 {
+    z-index: 11;
+}
+
+#f1 {background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;}
+
+#f1 img         {width: 200px;
+                height: 200px;}
+
+#f1 h1          {
+                font-size: 25px;}
+
+#b1 {background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;}
+
+#b1 img         {width: 250px;
+                height: 200px;}
+
+#p2 {
+    z-index: 10;
+}
+
+#f2 {background: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3%;}
+
+#f2 h1 {font-size: 20px;
+        color: var(--white);
+        height: 40px;}
+
+#f2 p {font-size: 15px;
+        height: 150px;}
+
+#b2 {background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;}
+
+#b2 img         {width: 250px;
+                height: 200px;}
+
+#p3 {
+    z-index: 9;
+}
+
+#f3 {background: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;}
+
+#f3 h1 {font-size: 20px;
+        color: var(--white);
+        height: 60px;}
+
+#f3 p {font-size: 15px;
+        height: 120px;}
+
+#b3 {background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;}
+
+#b3 img         {width: 250px;
+                height: 200px;}
+
+#p4 {
+    z-index: 8;
+}
+
+#f4 {background: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;}
+
+#f4 h1 {font-size: 20px;
+        color: var(--white);
+        height: 60px;}
+
+#f4 p {font-size: 15px;
+        height: 120px;}
+
+#b4 {background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;}
+
+#b4 img         {width: 250px;
+                height: 200px;}
+
+#p5 {
+    z-index: 7;
+}
+
+#f5 {background: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;}
+
+#f5 h1 {font-size: 20px;
+        color: var(--white);
+        height: 60px;}
+
+#f5 p {font-size: 15px;
+        height: 120px;}
+
+#b5 {background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;}
+
+#b5 img         {width: 250px;
+                height: 200px;}
+
+#p6 {
+    z-index: 6;
+}
+
+#f6 {background: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;}
+
+#f6 h1 {font-size: 20px;
+        color: var(--white);
+        height: 60px;}
+
+#f6 p {font-size: 15px;
+        height: 120px;}
+
+#b6 {background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;}
+
+#b6 img         {width: 250px;
+                height: 200px;}
+
+#p7 {
+    z-index: 5;
+}
+
+#f7 {background: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;}
+
+#f7 h1 {font-size: 20px;
+        color: var(--white);
+        height: 60px;}
+
+#f7 p {font-size: 15px;
+        height: 120px;}
+
+#b7 {background: var(--white);}
+
+
+</style>
+<body>
+
+    <section class="navbar">
+          <section class="logo"><img src="img/logo.png" alt=""></section>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+          <nav class="nav-links" id="navLinks">
+            <a href="index.html"><span>Home</span></a>
+            <a href="about.html">About Us</a>  
+            <div class="dropdown">
+                <button class="dropbtn"><a href="#">Products</a> 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="surgical-sub-station.html">Surgical Scrub Station</a>
+                  <a href="scrub_sink.html">Scrub Sink</a>
+                  <a href="automatic_scrub.html">Automatic Scrub Station / Sink</a>
+                  <a href="icu_bed.html">ICU Bed</a>
+                  <a href="labour_table.html">Labour Table</a>
+                  <a href="Electric-Examination-Table.html">Electric Examination Table</a>
+                  <a href="EMERGENCY_AND_RECOVERY_TROLLEY.html">Emergency and Recovery Trolley</a>
+                  <a href="autoclave.html">Autoclave High Pressure Steam Sterilizer</a>
+                  <a href="scrub_sink_timer.html">Scrub Sink Timer</a>
+                  <a href="DIALYSIS_CHAIR.html">Dialysis Chair</a>
+                  <a href="CATHETER_WASH_SINK.html">Catheter Wash Sink</a>
+                  <a href="pass_box.html">Pass box / Hatch Box</a>
+                </div>
+              </div> 
+            <a href="contact.html">Contact Us</a>
+            <a href="#"><button class="animated-button">
+  <span>Enquire</span>
+  <span></span>
+</button></a>
+          </nav>
+        </section>
+    <!-- Previous Button -->
+    <button id="prev-btn">
+        <img src="img/left arrow.png" alt="">
+    </button>
+
+
+    <!-- Book -->
+    <div id="book" class="book">
+        <!-- Paper 1 -->
+        <div id="p1" class="paper">
+            <div class="front">
+                <div id="f1" class="front-content">
+                    <img src="img/logo.png" alt="">
+                    <h1>ANAMIKA ENGINEERING</h1>
+                </div>
+            </div>
+            <div class="back">
+                <div id="b1" class="back-content">
+                    <img src="img/electrical scrub.jpg" alt="">
+                    <img src="img/Elbow-Operated-Surgical-Sink.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Paper 2 -->
+        <div id="p2" class="paper">
+            <div class="front">
+                <div id="f2" class="front-content">
+                    <h1>SURGICAL SCRUB STATION</h1>
+                    <p>Being the top surgical scrub stations manufacturer in India, we provide both manual and sensor-based models to meet a range of hospital needs. Our stations, which are trusted by healthcare providers, establish a sterile environment prior to each procedure.</p>
+                    <h1>SCRUB SINK</h1>
+                    <p>As the best scrub sink manufacturer in India, we guarantee that each one is expertly constructed to satisfy international standards. The design prioritizes long service life, sturdy construction, and user convenience.</p>
+                </div>
+            </div>
+            <div class="back">
+                <div id="b2" class="back-content">
+                    <img src="img/electrical scrub.jpg" alt="">
+                    <img src="img/Electric-ICU-Bed.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Paper 3 -->
+        <div id="p3" class="paper">
+            <div class="front">
+                <div id="f3" class="front-content">
+                    <h1>AUTOMATIC SCRUB STATION/SINK</h1>
+                    <p>As a reputable automatic scrub station/sink manufacturer in India, we prioritize fusing robustness, usability, and design to guarantee optimal performance in demanding settings.</p>
+                    <h1>ICU BED</h1>
+                    <p>ICU beds designed and manufactured by ANAMIKA ENGINEERING combine comfort, safety, and functionality. Designed for use in clinics, hospitals, and specialty care facilities, our beds help healthcare professionals provide the best possible care.</p>
+                </div>
+            </div>
+            <div class="back">
+                <div id="b3" class="back-content">
+                    <img src="img/labour_table.jpg" alt="">
+                    <img src="img/dialysis_chair.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Paper 4 -->
+        <div id="p4" class="paper">
+            <div class="front">
+                <div id="f4" class="front-content">
+                    <h1>LABOUR TABLE</h1>
+                    <p>As a reputable labour table manufacturer in India, we prioritize ergonomic designs that satisfy patient comfort and medical requirements.</p>
+                    <h1>DIALYSIS CHAIR</h1>
+                    <p>As the best dialysis chair manufacturer in India, we offer products that satisfy the strictest requirements for care and functionality.</p>
+                </div>
+            </div>
+            <div class="back">
+                <div id="b4" class="back-content">
+                    <img src="img/Patient-Stretcher-Trolley.jpg" alt="">
+                    <img src="img/Vertical-High-Pressure-Surgical.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Paper 5 -->
+        <div id="p5" class="paper">
+            <div class="front">
+                <div id="f5" class="front-content">
+                    <h1>EMERGENCY AND RECOVERY TROLLEY</h1>
+                    <p>Being a reputable emergency and recovery trolley manufacturer in India, we are aware of the need for promptness and dependability when caring for patients in life-threatening situations.</p>
+                    <h1>AUTOCLAVE HIGH PRESSURE STEAM STERILIZER</h1>
+                    <p>Being the best autoclave high-pressure steam sterilizers manufacturer in India, we build our machines with strong designs and state-of-the-art safety features to guarantee total sterilization every cycle.</p>
+                </div>
+            </div>
+            <div class="back">
+                <div id="b5" class="back-content">
+                    <img src="img/sink-timer.jpg" alt="">
+                    <img src="img/catheter_sink.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Paper 6 -->
+        <div id="p6" class="paper">
+            <div class="front">
+                <div id="f6" class="front-content">
+                    <h1>Scrub sink timer</h1>
+                    <p>As a reputable scrub sink timer manufacturer in India, we support safe medical practices by fusing innovation and dependability.</p>
+                    <h1>CATHETER WASH SINK</h1>
+                    <p>Being a well-known catheter wash sink supplier in India, we create products that are robust, easy to use, and built to last. Our catheter wash sink ensures continuous use in critical care areas because it is easy to install and maintain.</p>
+                </div>
+            </div>
+            <div class="back">
+                <div id="b6" class="back-content">
+                    <img src="img/hatch_box.jpg" alt="">
+                </div>
+            </div>
+        </div>      
+        <!-- Paper 7 -->
+        <div id="p7" class="paper">
+            <div class="front">
+                <div id="f7" class="front-content">
+                    <h1>PASS BOX/ HATCH BOX</h1>
+                    <p>One of the best pass box/ hatch box manufacturers in India, providing reliable solutions for cleanrooms and controlled environments.</p>
+                    
+                </div>
+            </div>
+            <div class="back">
+                <div id="b7" class="back-content">
+                    <img src="img/logo.png" alt="">
+                </div>
+            </div>
+        </div>     
+        
+         
+    </div>
+
+    <!-- Next Button -->
+    <button id="next-btn">
+        <img src="img/right arrow.png" alt="">
+    </button>
+
+    
+    <script>
+        // References to DOM Elements
+const prevBtn = document.querySelector("#prev-btn");
+const nextBtn = document.querySelector("#next-btn");
+const book = document.querySelector("#book");
+
+const paper1 = document.querySelector("#p1");
+const paper2 = document.querySelector("#p2");
+const paper3 = document.querySelector("#p3");
+const paper4 = document.querySelector("#p4");
+const paper5 = document.querySelector("#p5");
+const paper6 = document.querySelector("#p6");
+const paper7 = document.querySelector("#p7");
+const paper8 = document.querySelector("#p8");
+const paper9 = document.querySelector("#p9");
+const paper10 = document.querySelector("#p10");
+const paper11 = document.querySelector("#p11");
+
+
+// Event Listener
+prevBtn.addEventListener("click", goPrevPage);
+nextBtn.addEventListener("click", goNextPage);
+
+// Business Logic
+let currentLocation = 1;
+let numOfPapers = 11;
+let maxLocation = numOfPapers + 1;
+
+function openBook() {
+    book.style.transform = "translateX(50%)";
+    prevBtn.style.transform = "translateX(-180px)";
+    nextBtn.style.transform = "translateX(180px)";
+}
+
+function closeBook(isAtBeginning) {
+    if(isAtBeginning) {
+        book.style.transform = "translateX(0%)";
+    } else {
+        book.style.transform = "translateX(100%)";
+    }
+    
+    prevBtn.style.transform = "translateX(0px)";
+    nextBtn.style.transform = "translateX(0px)";
+}
+
+function goNextPage() {
+    if(currentLocation < maxLocation) {
+        switch(currentLocation) {
+            case 1:
+                openBook();
+                paper1.classList.add("flipped");
+                paper1.style.zIndex = 1;
+                break;
+            case 2:
+                paper2.classList.add("flipped");
+                paper2.style.zIndex = 2;
+                break;
+            case 3:
+                paper3.classList.add("flipped");
+                paper3.style.zIndex = 3;
+                break;
+            case 4:
+                paper4.classList.add("flipped");
+                paper4.style.zIndex = 4;
+                break;
+            case 5:
+                paper5.classList.add("flipped");
+                paper5.style.zIndex = 5;
+                break;
+            case 6:
+                paper6.classList.add("flipped");
+                paper6.style.zIndex = 6;
+                break;
+            default:
+                throw new Error("unkown state");
+        }
+        currentLocation++;
+    }
+}
+
+function goPrevPage() {
+    if(currentLocation > 1) {
+        switch(currentLocation) {
+            case 2:
+                closeBook(true);
+                paper1.classList.remove("flipped");
+                paper1.style.zIndex = 11;
+                break;
+            case 3:
+                paper2.classList.remove("flipped");
+                paper2.style.zIndex = 10;
+                break;
+            case 4:
+                paper3.classList.remove("flipped");
+                paper3.style.zIndex = 9;
+                break;
+            case 5:
+                paper4.classList.remove("flipped");
+                paper4.style.zIndex = 8;
+                break;
+            case 6:
+                paper5.classList.remove("flipped");
+                paper5.style.zIndex = 7;
+                break;
+            case 7:
+                paper6.classList.remove("flipped");
+                paper6.style.zIndex = 6;
+                break;
+            case 8:
+                paper7.classList.remove("flipped");
+                paper7.style.zIndex = 5;
+                break;
+            case 9:
+                paper8.classList.remove("flipped");
+                paper8.style.zIndex = 4;
+                break;
+            case 10:
+                paper9.classList.remove("flipped");
+                paper9.style.zIndex = 3;
+                break;
+            case 11:
+                paper10.classList.remove("flipped");
+                paper10.style.zIndex = 2;
+                break;
+            case 12:
+                openBook();
+                paper11.classList.remove("flipped");
+                paper11.style.zIndex = 1;
+                break;
+            
+            
+            
+            
+            default:
+                throw new Error("unkown state");
+        }
+
+        currentLocation--;
+    }
+}
+    </script>
+    <script>
+        let play = document.getElementById("next-btn");
+            function playMusic() {
+                let audio = new Audio("paper-3.mp3");
+                audio.play()
+            }
+            play.addEventListener("click", playMusic);
+    </script>
+    <script>
+        let play1 = document.getElementById("prev-btn");
+            function playMusic() {
+                let audio = new Audio("paper-3.mp3");
+                audio.play()
+            }
+            play1.addEventListener("click", playMusic);
+    </script>
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+</body>
+</html>

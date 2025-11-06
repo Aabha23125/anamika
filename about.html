@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – Anamika Engineering | Trusted Partner in Medical Equipment</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base Styling */
+        :root {
+            --primary-color: #213e60; /* A professional blue */
+            --secondary-color: #69acc2; /* A complementary green for highlights */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #e9ecef;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            background-image: url("img/banner.png");
+            background-size: 100% 150%;
+            background-position: center;
+            color: white;
+            width: 100%;
+            height: 500px;
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--dark-bg);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+        
+        /* Grid Layouts for Core Values and Products */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .value-card, .industry-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover, .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .value-card h3, .industry-card h3 {
+            color: var(--secondary-color);
+            font-size: 1.3em;
+            margin-top: 0;
+        }
+
+        .industry-card p {text-align: center;}
+        
+        /* Product List */
+        .product-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .product-list li {
+            background: var(--dark-bg);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid var(--primary-color);
+            font-weight: bold;
+        }
+
+        .product-list li span {
+            display: block;
+            font-weight: normal;
+            font-size: 0.9em;
+            color: var(--text-color);
+            margin-top: 5px;
+        }
+
+        /* Mission/Vision */
+        .mission-vision-grid {
+            display: flex;
+            gap: 30px;
+        }
+
+        .mission-vision-grid > div {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid var(--dark-bg);
+            border-radius: 8px;
+        }
+
+        .mission-vision-grid h3 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        
+        .mission-vision-grid ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .mission-vision-grid ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .mission-vision-grid ul li::before {
+            content: '✓'; /* Checkmark bullet */
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* General Text Styles */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Why Choose Us Highlight */
+        .highlight-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .highlight-box h3 {
+            color: white;
+            text-align: center;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+        
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .highlight-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .highlight-list strong {
+            color: var(--secondary-color);
+        }
+        
+        /* Footer Placeholder for completeness */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .mission-vision-grid {
+                flex-direction: column;
+            }
+            
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <section class="navbar">
+          <section class="logo"><img src="img/logo.png" alt=""></section>
+          <button class="hamburger" id="hamburger">&#9776;</button>
+          <nav class="nav-links" id="navLinks">
+            <a href="index.html"><span>Home</span></a>
+            <a href="about.html">About Us</a>  
+            <div class="dropdown">
+                <button class="dropbtn"><a href="#">Products</a> 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="surgical-sub-station.html">Surgical Scrub Station</a>
+                  <a href="scrub_sink.html">Scrub Sink</a>
+                  <a href="automatic_scrub.html">Automatic Scrub Station / Sink</a>
+                  <a href="icu_bed.html">ICU Bed</a>
+                  <a href="labour_table.html">Labour Table</a>
+                  <a href="Electric-Examination-Table.html">Electric Examination Table</a>
+                  <a href="EMERGENCY_AND_RECOVERY_TROLLEY.html">Emergency and Recovery Trolley</a>
+                  <a href="autoclave.html">Autoclave High Pressure Steam Sterilizer</a>
+                  <a href="scrub_sink_timer.html">Scrub Sink Timer</a>
+                  <a href="DIALYSIS_CHAIR.html">Dialysis Chair</a>
+                  <a href="CATHETER_WASH_SINK.html">Catheter Wash Sink</a>
+                  <a href="pass_box.html">Pass box / Hatch Box</a>
+                </div>
+              </div> 
+            <a href="contact.html">Contact Us</a>
+            <a href="cataloge.html">Cataloge</a>
+            <a href="#"><button class="animated-button">
+  <span>Enquire</span>
+  <span></span>
+</button></a>
+          </nav>
+        </section>
+
+    <div class="hero">
+        <div class="container">
+            <h1>About Us – Anamika Engineering</h1>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <section class="section">
+            <p>At Anamika Engineering, we think that **accuracy, quality, and trust** are the foundations of healthcare. Being a top producer, supplier, and exporter of surgical and medical equipment, we are dedicated to providing goods that support healthcare providers and improve patient care.</p>
+
+            <p>Our goal has been clear from the start: to create and produce top-notch equipment that satisfies the changing requirements of contemporary healthcare institutions. Because we continuously deliver **dependable, long-lasting, and innovative solutions**, we have gained the trust of hospitals, clinics, labs, and healthcare facilities both in India and beyond.</p>
+        </section>
+
+        <section class="section">
+            <h2>Who We Are & Our Products</h2>
+            <p>In the healthcare sector, Anamika Engineering is a name that connotes **excellence and creativity**. With years of experience, we specialize in manufacturing a variety of medical and hospital equipment that are essential to everyday medical procedures. Our commitment to precise engineering, robustness, and adherence to global healthcare standards is evident in every one of our products.</p>
+            
+            <ul class="product-list">
+                <li>Surgical scrub stations <span>guarantee the utmost hygienic conditions in operating rooms.</span></li>
+                <li>ICU beds <span>are made to meet the comfort and critical care requirements of patients.</span></li>
+                <li>Electric examination tables <span>provide both patients and physicians flexibility.</span></li>
+                <li>Autoclave High Pressure Steam Sterilizers <span>guaranteeing sterility and safety in healthcare settings.</span></li>
+                <li>Dialysis chairs <span>are designed to keep patients comfortable throughout extended treatment sessions.</span></li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Our Journey</h2>
+            <p>What began as an idea to provide the healthcare sector with reliable equipment has developed into a reputable brand that is renowned for its **quality, inventiveness, and client happiness**. Our activities have grown over time to serve hospitals and medical facilities in both domestic and foreign markets in India.</p>
+
+            <p>By implementing cutting-edge production techniques, advanced technology, and a knowledgeable team, we have built ourselves as one of the most **dependable producers and exporters** of medical equipment. We ensure that our solutions bring genuine value in real-world applications by designing them with a thorough grasp of the difficulties faced by healthcare professionals.</p>
+        </section>
+        
+        <section class="section">
+            <h2>Our Mission & Vision</h2>
+            <div class="mission-vision-grid">
+                <div>
+                    <h3>Our Mission</h3>
+                    <p>Our goal is straightforward but effective:</p>
+                    <ul>
+                        <li>To provide durable, creative, and superior medical equipment.</li>
+                        <li>To assist medical facilities and staff in giving patients the best treatment possible.</li>
+                        <li>To ensure that every product we develop satisfies international standards for performance, safety, and cleanliness.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Our Vision</h3>
+                    <p>In the field of medical equipment, we see Anamika Engineering as a world-renowned leader. Our objective is to establish standards for **quality, reliability, and creativity** so that hospitals and other healthcare facilities across the world may depend on us for vital medical services.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Core Values That Drive Us</h2>
+            <div class="grid-4">
+                <div class="value-card">
+                    <h3>Integrity</h3>
+                    <p>We support open business dealings and sincere promises.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Quality First</h3>
+                    <p>Prior to being delivered to our customers, each product is subjected to extensive quality inspections.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Innovation</h3>
+                    <p>To satisfy the demands of contemporary healthcare, we continuously improve our designs and technologies.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Customer-Centric Approach</h3>
+                    <p>Establishing enduring bonds with customers by learning about their unique needs.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Why Choose Anamika Engineering?</h2>
+            <div class="highlight-box">
+                <h3>You receive more than simply goods; you also get a reliable supplier of healthcare solutions.</h3>
+                <ul class="highlight-list">
+                    <li><strong>Manufacturing Excellence:</strong> Every product is made with accuracy and durability thanks to our cutting-edge facilities.</li>
+                    <li><strong>Broad Product Offering:</strong> We address a range of hospital requirements, from personal care items to medical furnishings.</li>
+                    <li><strong>Customization Options:</strong> We provide solutions that are specifically designed to meet the needs of healthcare institutions.</li>
+                    <li><strong>International Quality Standards:</strong> Our equipment is made to satisfy healthcare standards in India and abroad.</li>
+                    <li><strong>Dependable Customer Support:</strong> We are dedicated to providing quick delivery, after-sales care, and continuing support.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Industries We Serve</h2>
+            <p style="text-align: center;">Numerous healthcare professionals trust our equipment:</p>
+            <div class="grid-4">
+                <div class="industry-card">
+                    <h3>Hospitals and Nursing Homes</h3>
+                    <p>ICU, surgical, and patient care needs are met.</p>
+                </div>
+                <div class="industry-card">
+                    <h3>Clinics and Diagnostic Facilities</h3>
+                    <p>For accurate diagnosis and comprehensive care.</p>
+                </div>
+                <div class="industry-card">
+                    <h3>Dialysis Facilities</h3>
+                    <p>For cozy and long-lasting dialysis equipment.</p>
+                </div>
+                <div class="industry-card">
+                    <h3>Labs and Research Institutes</h3>
+                    <p>For equipment handling and sterilization.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <div class="industry-card" style="display: inline-block;">
+                    <h3>Maternity Homes</h3>
+                    <p>For solutions related to labor and delivery.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Commitment to Quality</h2>
+            <p>At Anamika Engineering, quality is the cornerstone of our operations rather than only a feature. Every product is **rigorously tested** for usefulness, safety, and durability from the raw material selection to the final inspection.</p>
+
+            <p>Our committed quality control staff makes sure that **national and international healthcare standards** are followed. Our dedication to quality has enabled us to establish enduring connections with customers all around the world.</p>
+        </section>
+
+    </main>
+
+    <footer class="nyc-footer">
+    <div class="nyc-footer-content">
+        <div class="nyc-footer-links">
+            <div class="footer-column">
+        <img src="img/logo.png" alt="">
+        <h3>Anamika Engineering</h3>
+        <p>
+          At Anamika Engineering, we think that accuracy, quality, 
+          and trust are the foundations of healthcare.
+        </p>
+            </div>
+
+            <!-- Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <p><a href="#">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="surgical-sub-station.html">Products</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+            <div class="footer-column">
+                <h3>Popular Topics</h3>
+                <ul>
+                  <li><a href="surgical-sub-station.html">Surgical Scrub Station</a></li>
+                  <li><a href="scrub_sink.html">Scrub Sink</a></li>
+                  <li><a href="automatic_scrub.html">Automatic Scrub Station / Sink</a></li>
+                  <li><a href="icu_bed.html">ICU Bed</a></li>
+                  <li><a href="labour_table.html">Labour Table</a></li>
+                  <li><a href="Electric-Examination-Table.html">Electric Examination Table</a></li>
+                  <li><a href="EMERGENCY_AND_RECOVERY_TROLLEY.html">Emergency and Recovery Trolley</a></li>
+                  <li><a href="autoclave.html">Autoclave High Pressure Steam Sterilizer</a></li>
+                  <li><a href="scrub_sink_timer.html">Scrub Sink Timer</a></li>
+                  <li><a href="DIALYSIS_CHAIR.html">Dialysis Chair</a></li>
+                  <li><a href="CATHETER_WASH_SINK.html">Catheter Wash Sink</a></li>
+                  <li><a href="pass_box.html">Pass box / Hatch Box</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>
+                    <a href="tel:311"><i class="fa-solid fa-phone"></i>&nbsp;+91-9899478180<br>+91-7836090243</a><br>
+                    <a href="mailto:info@nycwebsite.gov"><i class="fa-solid fa-envelope"></i>&nbsp;engineering.anamika@gmail.com</a>
+                    <a href="#"></a>
+                </p>
+                
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="nyc-footer-bottom">
+            <p class="copyright">&copy; 2025 Anamika Engineering designed by<br> Promopact Marketing Pvt. Ltd.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
